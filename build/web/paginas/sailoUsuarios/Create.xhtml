@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SailoUsuariosCreateDlg" widgetVar="SailoUsuariosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateSailoUsuariosTitle}">
+            <h:form id="SailoUsuariosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{sailoUsuariosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateSailoUsuariosLabel_usuaId}" for="usuaId" />
+                        <p:inputText id="usuaId" value="#{sailoUsuariosController.selected.usuaId}" title="#{bundle.CreateSailoUsuariosTitle_usuaId}" required="true" requiredMessage="#{bundle.CreateSailoUsuariosRequiredMessage_usuaId}"/>
+                        <p:outputLabel value="#{bundle.CreateSailoUsuariosLabel_usuaUsuario}" for="usuaUsuario" />
+                        <p:inputText id="usuaUsuario" value="#{sailoUsuariosController.selected.usuaUsuario}" title="#{bundle.CreateSailoUsuariosTitle_usuaUsuario}" />
+                        <p:outputLabel value="#{bundle.CreateSailoUsuariosLabel_usuaPassword}" for="usuaPassword" />
+                        <p:inputText id="usuaPassword" value="#{sailoUsuariosController.selected.usuaPassword}" title="#{bundle.CreateSailoUsuariosTitle_usuaPassword}" />
+                        <p:outputLabel value="#{bundle.CreateSailoUsuariosLabel_usuaNombre}" for="usuaNombre" />
+                        <p:inputText id="usuaNombre" value="#{sailoUsuariosController.selected.usuaNombre}" title="#{bundle.CreateSailoUsuariosTitle_usuaNombre}" />
+                        <p:outputLabel value="#{bundle.CreateSailoUsuariosLabel_usuaEmail}" for="usuaEmail" />
+                        <p:inputText id="usuaEmail" value="#{sailoUsuariosController.selected.usuaEmail}" title="#{bundle.CreateSailoUsuariosTitle_usuaEmail}" />
+                        <p:outputLabel value="#{bundle.CreateSailoUsuariosLabel_usuaActivoDesde}" for="usuaActivoDesde" />
+                        <p:calendar id="usuaActivoDesde" pattern="MM/dd/yyyy" value="#{sailoUsuariosController.selected.usuaActivoDesde}" title="#{bundle.EditSailoUsuariosTitle_usuaActivoDesde}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateSailoUsuariosLabel_usuaActivoHasta}" for="usuaActivoHasta" />
+                        <p:calendar id="usuaActivoHasta" pattern="MM/dd/yyyy" value="#{sailoUsuariosController.selected.usuaActivoHasta}" title="#{bundle.EditSailoUsuariosTitle_usuaActivoHasta}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateSailoUsuariosLabel_usuaFechaCreacion}" for="usuaFechaCreacion" />
+                        <p:calendar id="usuaFechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{sailoUsuariosController.selected.usuaFechaCreacion}" title="#{bundle.EditSailoUsuariosTitle_usuaFechaCreacion}" required="true" requiredMessage="#{bundle.EditSailoUsuariosRequiredMessage_usuaFechaCreacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateSailoUsuariosLabel_usuaUsuarioCreacion}" for="usuaUsuarioCreacion" />
+                        <p:inputText id="usuaUsuarioCreacion" value="#{sailoUsuariosController.selected.usuaUsuarioCreacion}" title="#{bundle.CreateSailoUsuariosTitle_usuaUsuarioCreacion}" />
+                        <p:outputLabel value="#{bundle.CreateSailoUsuariosLabel_usuaFechaModificacion}" for="usuaFechaModificacion" />
+                        <p:calendar id="usuaFechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{sailoUsuariosController.selected.usuaFechaModificacion}" title="#{bundle.EditSailoUsuariosTitle_usuaFechaModificacion}" required="true" requiredMessage="#{bundle.EditSailoUsuariosRequiredMessage_usuaFechaModificacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateSailoUsuariosLabel_usuaUsuarioModificacion}" for="usuaUsuarioModificacion" />
+                        <p:inputText id="usuaUsuarioModificacion" value="#{sailoUsuariosController.selected.usuaUsuarioModificacion}" title="#{bundle.CreateSailoUsuariosTitle_usuaUsuarioModificacion}" required="true" requiredMessage="#{bundle.CreateSailoUsuariosRequiredMessage_usuaUsuarioModificacion}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{sailoUsuariosController.create}" value="#{bundle.Save}" update="display,:SailoUsuariosListForm:datalist,:growl" oncomplete="handleSubmit(args,'SailoUsuariosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SailoUsuariosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

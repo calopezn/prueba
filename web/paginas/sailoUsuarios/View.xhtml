@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SailoUsuariosViewDlg" widgetVar="SailoUsuariosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSailoUsuariosTitle}">
+            <h:form id="SailoUsuariosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{sailoUsuariosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSailoUsuariosLabel_usuaId}"/>
+                        <h:outputText value="#{sailoUsuariosController.selected.usuaId}" title="#{bundle.ViewSailoUsuariosTitle_usuaId}"/>
+                        <h:outputText value="#{bundle.ViewSailoUsuariosLabel_usuaUsuario}"/>
+                        <h:outputText value="#{sailoUsuariosController.selected.usuaUsuario}" title="#{bundle.ViewSailoUsuariosTitle_usuaUsuario}"/>
+                        <h:outputText value="#{bundle.ViewSailoUsuariosLabel_usuaPassword}"/>
+                        <h:outputText value="#{sailoUsuariosController.selected.usuaPassword}" title="#{bundle.ViewSailoUsuariosTitle_usuaPassword}"/>
+                        <h:outputText value="#{bundle.ViewSailoUsuariosLabel_usuaNombre}"/>
+                        <h:outputText value="#{sailoUsuariosController.selected.usuaNombre}" title="#{bundle.ViewSailoUsuariosTitle_usuaNombre}"/>
+                        <h:outputText value="#{bundle.ViewSailoUsuariosLabel_usuaEmail}"/>
+                        <h:outputText value="#{sailoUsuariosController.selected.usuaEmail}" title="#{bundle.ViewSailoUsuariosTitle_usuaEmail}"/>
+                        <h:outputText value="#{bundle.ViewSailoUsuariosLabel_usuaActivoDesde}"/>
+                        <h:outputText value="#{sailoUsuariosController.selected.usuaActivoDesde}" title="#{bundle.ViewSailoUsuariosTitle_usuaActivoDesde}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewSailoUsuariosLabel_usuaActivoHasta}"/>
+                        <h:outputText value="#{sailoUsuariosController.selected.usuaActivoHasta}" title="#{bundle.ViewSailoUsuariosTitle_usuaActivoHasta}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewSailoUsuariosLabel_usuaFechaCreacion}"/>
+                        <h:outputText value="#{sailoUsuariosController.selected.usuaFechaCreacion}" title="#{bundle.ViewSailoUsuariosTitle_usuaFechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewSailoUsuariosLabel_usuaUsuarioCreacion}"/>
+                        <h:outputText value="#{sailoUsuariosController.selected.usuaUsuarioCreacion}" title="#{bundle.ViewSailoUsuariosTitle_usuaUsuarioCreacion}"/>
+                        <h:outputText value="#{bundle.ViewSailoUsuariosLabel_usuaFechaModificacion}"/>
+                        <h:outputText value="#{sailoUsuariosController.selected.usuaFechaModificacion}" title="#{bundle.ViewSailoUsuariosTitle_usuaFechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewSailoUsuariosLabel_usuaUsuarioModificacion}"/>
+                        <h:outputText value="#{sailoUsuariosController.selected.usuaUsuarioModificacion}" title="#{bundle.ViewSailoUsuariosTitle_usuaUsuarioModificacion}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SailoUsuariosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

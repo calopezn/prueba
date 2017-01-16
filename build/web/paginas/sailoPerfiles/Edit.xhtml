@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SailoPerfilesEditDlg" widgetVar="SailoPerfilesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSailoPerfilesTitle}">
+            <h:form id="SailoPerfilesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{sailoPerfilesController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSailoPerfilesLabel_perfilId}" for="perfilId" />
+                        <p:inputText id="perfilId" value="#{sailoPerfilesController.selected.perfilId}" title="#{bundle.EditSailoPerfilesTitle_perfilId}" required="true" requiredMessage="#{bundle.EditSailoPerfilesRequiredMessage_perfilId}"/>
+                        <p:outputLabel value="#{bundle.EditSailoPerfilesLabel_perfilNombre}" for="perfilNombre" />
+                        <p:inputText id="perfilNombre" value="#{sailoPerfilesController.selected.perfilNombre}" title="#{bundle.EditSailoPerfilesTitle_perfilNombre}" required="true" requiredMessage="#{bundle.EditSailoPerfilesRequiredMessage_perfilNombre}"/>
+                        <p:outputLabel value="#{bundle.EditSailoPerfilesLabel_perfilDescripcion}" for="perfilDescripcion" />
+                        <p:inputText id="perfilDescripcion" value="#{sailoPerfilesController.selected.perfilDescripcion}" title="#{bundle.EditSailoPerfilesTitle_perfilDescripcion}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{sailoPerfilesController.update}" value="#{bundle.Save}" update="display,:SailoPerfilesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SailoPerfilesEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SailoPerfilesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
